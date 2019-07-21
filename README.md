@@ -1,5 +1,6 @@
 # beer_ratings
 Source code for kaggle competition 'beer ratings'
+`https://www.kaggle.com/c/beer-ratings/overview`
 
 ## Data fields
 
@@ -48,8 +49,16 @@ Categorical features are more troublesome. The first idea is to use label encodi
 
 The remaining text feature is the hardest to handle. With different methods one might get completely different results. Therefore I create a baseline model that only uses the numerical features and the categorical features for comparison.
 
-For the final model I used words embedding for sentiment analysis. First I clean up the text by lowering case and removing all special characters etc. Then I transform each review text to a fixed length of integer sequence by keras' tokenizer and zero padding (truncation when the length exceeds). So that I can feed them to a embedding model and take the output as the additional input for the baseline model.
+For the next model I used words embedding for sentiment analysis. First I clean up the text by lowering case and removing all special characters etc. Then I transform each review text to a fixed length of integer sequence by keras' tokenizer and zero padding (truncation when the length exceeds). So that I can feed them to a embedding model and take the output as the additional input for the baseline model.
+
+In the last model I used the pretrained embedding from stanford's GloVe (glove.6B.50d.txt), for comparision with the above model. 
 
 ## Result
 The baseline model achieved 0.55355, 0.55662 (private/public score)
-The final model achieved 
+The model with self trained embeddings achieved 0.57294 0.57358
+The model with GloVe embeddings achieved 0.66016 0.65326, not being specific enough for this task may be a reason
+
+
+## Environment
+All codes are run in google colab, with train.csv, test.csv, GloVe dictionary in the same folder:
+`/content/gdrive/My Drive/colab notebook/beer ratings/`
