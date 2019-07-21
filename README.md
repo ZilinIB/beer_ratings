@@ -55,7 +55,9 @@ In the last model I used the pretrained embedding from stanford's GloVe (glove.6
 
 ## Result
 The baseline model achieved 0.55355, 0.55662 (private/public score)
+
 The model with self trained embeddings achieved 0.57294 0.57358
+
 The model with GloVe embeddings achieved 0.66016 0.65326, not being specific enough for this task may be a reason
 
 
